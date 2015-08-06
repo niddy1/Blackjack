@@ -131,29 +131,43 @@
 
 
 ///////////not working
+ $(document).ready(function(){
+//   console.log("we good")
+//   Dealer()
+//   var dealerIan = new Dealer()
+//   dealerIan.evalulateHand();
+  dealerIan.bindCards();
 
-var faceCards = ["J","Q","K","A"];
-var suits = ["Spades","Diamonds","Hearts","Clubs"];
+})
+var faceCards = ["jack","queen","king","ace"];
+var suits = ["spades","diamonds","hearts","clubs"];
 var deck = [];
 
-function Card(symbol, suit, value){
+function Card(symbol, suit, value, image){
     this.symbol = symbol;
     this.suit = suit;
     this.value = value;
+    this.image = image;
     }
+
 
 function MakeDeck() {
       for (var i = 2; i < 11; i++) {
-        deck.push( new Card( i.toString(), suits[0], i) );
-        deck.push( new Card( i.toString(), suits[1], i) );
-        deck.push( new Card( i.toString(), suits[2], i) );
-        deck.push( new Card( i.toString(), suits[3], i) );
+        deck.push( new Card( i.toString(), suits[0], i, i+ "_of_" + suits[0] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[1], i, i+ "_of_" + suits[1] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[2], i, i+ "_of_" + suits[2] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[3], i, i+ "_of_" + suits[3] + ".png"   ) );
       }
       for (var j = 0; j < 4; j++) {
-        for (var k = 0; k < 4; k++) {
-          deck.push( new Card( faceCards[j], suits[k], (faceCards[j] == 'A' ? 11 : 10)) );
-        }
-      }return deck;
+          deck.push( new Card( faceCards[j], suits[0], (faceCards[j] == 'A' ? 11 : 10), faceCards[j] + "_of_" + suits[0] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[1], (faceCards[j] == 'A' ? 11 : 10), faceCards[j] + "_of_" + suits[1] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[2], (faceCards[j] == 'A' ? 11 : 10), faceCards[j] + "_of_" + suits[2] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[3], (faceCards[j] == 'A' ? 11 : 10), faceCards[j] + "_of_" + suits[3] + ".png"       ) );
+      }
+
+
+
+      return deck;
     }
 
 //makeDeck();
@@ -183,7 +197,7 @@ function Dealer(){
 
 var dealerIan = new Dealer();
 
-dealerIan.deck[0];
+dealerIan.deck;
 dealerIan.shuffleDeck();
 Dealer.prototype.dealCards = function(){
     this.dealerHand.push(deck.splice(0,1)[0]);
@@ -214,6 +228,34 @@ Dealer.prototype.evalulateHand = function(){
 
     console.log(this.dealerValue);
     console.log(this.playerValue);
+  //  console.log(dealerCard1=this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit)
 };
 
 dealerIan.evalulateHand();
+
+Dealer.prototype.hitMe = function(){
+
+  console.log(this.dealerHand)
+//TODO
+  //if player presses hit button, new card is added to hand
+  //recalculates value of hand
+  //if value > 21. return bust, game over
+  // else if value === 21 return win, game over
+  // else if value < 21, loop back to line 222
+}
+Dealer.prototype.cardURL = function(){
+  return ("cards/"+this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit+".png")
+}
+dealerIan.cardURL()
+
+
+//var test = this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit+".png"
+Dealer.prototype.bindCards = function(){
+  //for (){
+    dealerCard1=this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit
+    ///3_of_spades
+    $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', this.cardURL() ))
+    $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src',"cards/3_of_clubs.png"))
+  //}
+}
+//dealerIan.bindCards()
