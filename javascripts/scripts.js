@@ -162,6 +162,8 @@ function Dealer(){
     this.deck = new MakeDeck();
     this.dealerHand = [];
     this.playerHand = [];
+    this.playerValue=0;
+    this.dealerValue=0;
     this.shuffleDeck = function shuffleDeck(){
         var deckLength = this.deck.length;
         var t;
@@ -200,19 +202,18 @@ dealerIan.dealCards();
 Dealer.prototype.evalulateHand = function(){
     //console.log(this.dealerHand[0].value);
     console.log(this.dealerHand);
-    var playerValue = 0;
-    var dealerValue = 0;
-    console.log(dealerHand.length);
-    for (var i = 0; i <= dealerHand.length; i++){
-
-        console.log("");
-        console.log(this.dealerHand[i]);
-
+    console.log("");
+    console.log(this.playerHand);
+    for (var i = 0; i < this.dealerHand.length; i++){
         //console.log(this.dealerHand[i].value)
-        //dealerValue = dealerValue + this.dealerHand[i].value
+        this.dealerValue = this.dealerValue + this.dealerHand[i].value;
     }
-    console.log( dealerValue = dealerValue + this.dealerHand[i].value);
-    //console.log(dealerValue)
+    for (var j = 0; j < this.playerHand.length; j++){
+        this.playerValue = this.playerValue + this.playerHand[j].value;
+    }
+
+    console.log(this.dealerValue);
+    console.log(this.playerValue);
 };
 
 dealerIan.evalulateHand();
