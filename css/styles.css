@@ -7,6 +7,7 @@ body{
   background-color: green;
   padding-top: 100px;
 }
+/*
 .card-board{
   width: 50%;
   height: 80%;
@@ -16,6 +17,7 @@ body{
   margin-bottom: -80px;
 
 }
+*/
 .button{
   margin-left: 200px;
   display: inline-block;
@@ -47,6 +49,8 @@ body{
 .playing-cards{
   height: 150px;
   margin-right: 10px;
+  margin-left: -90px;
+
 }
 .value{
   margin-left: auto;
@@ -60,4 +64,13 @@ body{
   border: 1px solid grey;
   text-align: center;
 
+}
+.dealer-cards{
+  margin-left: 120px;
+}
+.player-cards{
+  margin-left: 500px;
+}
+img{
+  height: 150px;
 }
