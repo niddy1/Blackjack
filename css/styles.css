@@ -13,13 +13,21 @@ body{
   background-color: green;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -80px;
 
 }
-.buttons{
-  margin-left: 100px;
+.button{
+  margin-left: 200px;
   display: inline-block;
   width: 100px;
   height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  font-size: 24px;
+}
+.button:hover{
+  background-color: red;
 }
 .player-name-plate{
   width: 100px;
@@ -39,4 +47,17 @@ body{
 .playing-cards{
   height: 150px;
   margin-right: 10px;
+}
+.value{
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  width: 50px;
+  background-color: black;
+  color: red;
+  font-size: 20px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  text-align: center;
+
 }

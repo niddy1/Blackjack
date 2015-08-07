@@ -135,10 +135,11 @@
 //   console.log("we good")
 //   Dealer()
 //   var dealerIan = new Dealer()
-  dealerIan.evalulateHand();
+  dealerIan.evaluateHand();
+  dealerIan.displayValues();
   dealerIan.bindCards();
   dealerIan.hitMe();
-  dealerIan.checkWinOnHit();
+   dealerIan.checkWinOnHit();
   dealerIan.checkWinOnStand();
 
 })
@@ -216,7 +217,7 @@ Dealer.prototype.dealCards = function(){
 
 dealerIan.dealCards();
 
-Dealer.prototype.evalulateHand = function(){
+Dealer.prototype.evaluateHand = function(){
 
     // this.playerValue = this.playerHand.reduce(function(a, b) {
     //   console.log(this.playerValue)
@@ -246,46 +247,118 @@ Dealer.prototype.evalulateHand = function(){
    console.log(dealerCard1=this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit)
 };
 //dealerIan.playerHand[0].value
-//dealerIan.evalulateHand();
+//dealerIan.evaluateHand();
+
 
 Dealer.prototype.hitMe = function(){
   $('.hit').on('click', function(e){
       e.preventDefault();
       var newCard = dealerIan.deck.splice(0,1)[0]
       dealerIan.playerHand.push(newCard)
-      dealerIan.evalulateHand()
+      dealerIan.evaluateHand()
       //this.hitPool.push(dealerIan.deck.splice(0,1)[0]);
       $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', newCard.image ))
 
     });
   }
-//TODO
 
-Dealer.prototype.checkWinOnHit = function(){
-    $(".hit").on("click", function(e){
-      e.preventDefault();
-      if (dealerIan.playerValue === 21){
-        alert ("21, you win!!!")
+
+  Dealer.prototype.checkWin = function(){
+    dealerIan.evaluateHand()
+    if (dealerIan.dealerValue === 21){
+      alert("You lose, dealer 21")
+    }
+    else if (dealerIan.playerValue === 21){
+      alert("You win, 21!")
+    }
+    else if (dealerIan.playerValue > 21){
+      alert("Bust, you lose!")
+    }
+    else if(dealerIan.dealerValue > 21){
+      alert("Dealer busts, you win!")
+    }
+    else if (dealerIan.playerValue > dealerIan.dealerValue){
+      alert("YOU WIN - higher than dealer")
+    }
+    else if (dealerIan.dealerValue > dealerIan.playerValue){
+      alert("YOU LOSE - lower than dealer")
+    }
+  }
+
+
+
+
+  Dealer.prototype.checkWinOnHit = function(){
+      $(".hit").on("click", function(e){
+        e.preventDefault();
+        if (dealerIan.playerValue === 21){
+          alert ("21, you win!!!")
+        }
+        else if (dealerIan.playerValue > 21){
+          alert ("Bust")
+        }
+      })
+  };
+
+  Dealer.prototype.checkWinOnStand = function(){
+    $(".stand").on("click", function(){
+    //  debugger;
+      var newCard = dealerIan.deck.splice(0,1)[0];
+      dealerIan.evaluateHand();
+      if (dealerIan.dealerValue > 16){
+        return dealerIan.checkWin();
       }
-      else if (dealerIan.playerValue > 21){
-        alert ("Bust")
+
+      else while (dealerIan.dealerValue <= 16){
+        var newCard = dealerIan.deck.splice(0,1)[0];
+        dealerIan.dealerHand.push(newCard)
+
+
+        $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', newCard.image ));
+        dealerIan.evaluateHand();
       }
+      dealerIan.checkWin();
+
     })
-};
-dealerIan.checkWinOnHit()
-Dealer.prototype.checkWinOnStand = function(){
-  $(".stand").on("click", function(e){
-    e.preventDefault();
-    console.log(dealerIan.playerValue)
-    if (dealerIan.playerValue > dealerIan.dealerValue){
-      alert ("You win!!")
-    }
-    else if (dealerIan.playerValue < dealerIan.dealerValue){
-      alert ("You losseeeeeee")
-    }
-  })
-};
-dealerIan.checkWinOnStand()
+  };
+
+
+///PRECHANGES TO WIN FUNCTION
+// Dealer.prototype.checkWinOnHit = function(){
+//     $(".hit").on("click", function(e){
+//       e.preventDefault();
+//       if (dealerIan.playerValue === 21){
+//         alert ("21, you win!!!")
+//       }
+//       else if (dealerIan.playerValue > 21){
+//         alert ("Bust")
+//       }
+//     })
+// };
+// dealerIan.checkWinOnHit()
+// Dealer.prototype.checkWinOnStand = function(){
+//   $(".stand").on("click", function(e){
+//     e.preventDefault();
+//     var newCard = dealerIan.deck.splice(0,1)[0]
+//     while (dealerIan.dealerValue < 16){
+//       $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', newCard.image ))
+//       dealerIan.evaluateHand()
+//     }
+//     console.log(dealerIan.playerValue)
+//     if (dealerIan.playerValue > dealerIan.dealerValue){
+//       alert ("You win!!")
+//     }
+//     else if (dealerIan.playerValue < dealerIan.dealerValue){
+//       alert ("You losseeeeeee")
+//     }
+//   })
+// };
+// dealerIan.checkWinOnStand()
+
+
+
+
+
   //if player presses hit button, new card is added to hand
   //recalculates value of hand
   //if value > 21. return bust, game over
@@ -309,4 +382,9 @@ Dealer.prototype.bindCards = function(){
     $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.playerHand[1].image ))
   //}
 }
+
+Dealer.prototype.displayValues = function(){
+  $(".playerValue").html(dealerIan.playerValue)
+}
+dealerIan.displayValues()
 dealerIan.hitMe()
