@@ -28,6 +28,14 @@ body{
   border-radius: 15px;
   font-size: 24px;
 }
+.new-deal{
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  background-color: firebrick;
+  font-size: 25px;
+  margin-left: 40px;
+}
 .button:hover{
   background-color: red;
 }
@@ -58,7 +66,7 @@ body{
   height: 50px;
   width: 50px;
   background-color: black;
-  color: red;
+  color: gold;
   font-size: 20px;
   border-radius: 50%;
   border: 1px solid grey;

@@ -133,7 +133,7 @@
 ///////////not working
  $(document).ready(function(){
    $(".new-deal").on('click', function(){
-     dealerIan.newGame();
+     dealerIan.newGame()
 
 //   console.log("we good")
 //   Dealer()
@@ -145,7 +145,7 @@
   //  dealerIan.checkWinOnHit();
   // dealerIan.checkWinOnStand();
 
-});
+})
 var faceCards = ["jack","queen","king","ace"];
 var suits = ["spades","diamonds","hearts","clubs"];
 var deck = [];
@@ -244,11 +244,11 @@ Dealer.prototype.evaluateHand = function(){
         tempSumPlayer += this.playerHand[j].value;
     }
     this.dealerValue = tempSumDealer;
-    this.playerValue = tempSumPlayer;
+    this.playerValue = tempSumPlayer
 
     console.log(this.dealerValue);
     console.log(this.playerValue);
-   console.log(dealerCard1=this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit);
+   console.log(dealerCard1=this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit)
 };
 //dealerIan.playerHand[0].value
 //dealerIan.evaluateHand();
@@ -257,46 +257,49 @@ Dealer.prototype.evaluateHand = function(){
 Dealer.prototype.hitMe = function(){
   $('.hit').on('click', function(e){
       e.preventDefault();
-      var newCard = dealerIan.deck.splice(0,1)[0];
-      dealerIan.playerHand.push(newCard);
-      dealerIan.evaluateHand();
+      var newCard = dealerIan.deck.splice(0,1)[0]
+      dealerIan.playerHand.push(newCard)
+      dealerIan.evaluateHand()
       //this.hitPool.push(dealerIan.deck.splice(0,1)[0]);
-      $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', newCard.image ));
-      dealerIan.displayValues();
+      $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', newCard.image ))
+      dealerIan.displayValues()
     });
-  };
+  }
 
 
   Dealer.prototype.checkWin = function(){
-    dealerIan.evaluateHand();
+    dealerIan.evaluateHand()
     if (dealerIan.dealerValue === dealerIan.playerValue){
-      alert("Tie");
+      alert("Tie")
     }
     else if (dealerIan.dealerValue === 21){
-      alert("You lose, dealer 21");
+      alert("You lose, dealer 21")
     }
     else if (dealerIan.playerValue === 21){
-      alert("You win, 21!");
+      alert("You win, 21!")
     }
     else if (dealerIan.playerValue > 21){
-        // for (var i = 0; i < dealerIan.playerHand.length; i++){
-        //   if(dealerIan.playerHand[i].value === 11 ){
-        //     dealerIan.playerHand[i].value
-        //
-        //   }
-        // }
-      alert("Bust, you lose!");
+
+      if (dealerIan.checkAcePlayer()){
+        dealerIan.playerValue = dealerIan.playerValue - 10
+        dealerIan.evaluateHand()
+        dealerIan.displayValues()
+
+      }
+      else{
+        alert ("Bust")
+      }
     }
     else if(dealerIan.dealerValue > 21){
-      alert("Dealer busts, you win!");
+      alert("Dealer busts, you win!")
     }
     else if (dealerIan.playerValue > dealerIan.dealerValue){
-      alert("YOU WIN - higher than dealer");
+      alert("YOU WIN - higher than dealer")
     }
     else if (dealerIan.dealerValue > dealerIan.playerValue){
-      alert("YOU LOSE - lower than dealer");
+      alert("YOU LOSE - lower than dealer")
     }
-  };
+  }
 
   // Dealer.prototype.ace = function(value){
   //   if (value > 21){
@@ -309,36 +312,42 @@ Dealer.prototype.hitMe = function(){
   //     }
   //   }
   // }
-// Dealer.prototype.checkAcePlayer = function(){
-//   for (var i = 0; i < dealerIan.playerHand.length; i++){
-//     if(dealerIan.playerHand[i].value === 11 ){
-//       return true
-//     }
-//     else{
-//       return false
-//       }
-// }
+Dealer.prototype.checkAcePlayer= function(){
+  for (var i = 0; i < dealerIan.playerHand.length; i++){
+    if(dealerIan.playerHand[i].value === 11 ){
+      return true
+    }
+  }
+    return false
+}
 
   Dealer.prototype.checkWinOnHit = function(){
       $(".hit").on("click", function(e){
         e.preventDefault();
         if (dealerIan.playerValue === 21){
-          alert ("21, you win!!!");
+          alert ("21, you win!!!")
         }
         else if (dealerIan.playerValue > 21){
-          alert ("Bust");
-              }
-        });
+          if (dealerIan.checkAcePlayer()){
+            dealerIan.playerValue = dealerIan.playerValue - 10
+
+            dealerIan.displayValues()
+
+          }
+          else{
+            alert ("Bust")
+          }
+
+        }
+        })
   };
   //
-  // dealerIan.playerValue = dealerIan.playerValue - 10
-  // dealerIan.evaluateHand()
-  // dealerIan.displayValues()
+
 
   Dealer.prototype.checkWinOnStand = function(){
     $(".stand").on("click", function(){
     //  debugger;
-    $(".back-card").remove();
+    $(".back-card").remove()
       var newCard = dealerIan.deck.splice(0,1)[0];
       dealerIan.evaluateHand();
       // if (dealerIan.dealerValue === dealerIan.playerValue){
@@ -350,17 +359,17 @@ Dealer.prototype.hitMe = function(){
 
       else while (dealerIan.dealerValue <= 16){
         var newCard = dealerIan.deck.splice(0,1)[0];
-        dealerIan.dealerHand.push(newCard);
+        dealerIan.dealerHand.push(newCard)
 
 
         $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', newCard.image ));
         dealerIan.evaluateHand();
 
-        dealerIan.displayValues();
+        dealerIan.displayValues()
       }
       dealerIan.checkWin();
-      $(".dealer-value").html(dealerIan.dealerValue);
-    });
+      $(".dealer-value").html(dealerIan.dealerValue)
+    })
   };
 
 
@@ -417,17 +426,17 @@ Dealer.prototype.bindCards = function(){
   //for (){
     //dealerCard1=this.dealerHand[0].symbol +"_of_"+ this.dealerHand[0].suit
     ///3_of_spades
-    $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.dealerHand[0].image ));
-  //  $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.dealerHand[1].image ));
-    $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.playerHand[0].image ));
-    $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.playerHand[1].image ));
+    $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.dealerHand[0].image ))
+  //  $(".dealer-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.dealerHand[1].image ))
+    $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.playerHand[0].image ))
+    $(".player-cards").append($("<img>").addClass("playing-cards").attr('src', dealerIan.playerHand[1].image ))
   //}
-};
+}
 
 Dealer.prototype.displayValues = function(){
-  $(".player-value").html(dealerIan.playerValue);
+  $(".player-value").html(dealerIan.playerValue)
   //$(".dealer-value").html(dealerIan.dealerValue)
-};
+}
 //dealerIan.displayValues()
 //dealerIan.hitMe()
 dealerIan.hitMe();
@@ -435,18 +444,18 @@ dealerIan.checkWinOnHit();
 dealerIan.checkWinOnStand();
 Dealer.prototype.newGame = function(){
   //debugger
-  dealerIan.playerHand = [];
-  dealerIan.dealerHand = [];
-  $(".dealer-cards").empty();
-  $(".player-cards").empty();
-  $(".dealer-value").empty();
-  $(".dealer-cards").append($('<img src="cards/backcard.jpg">').addClass("back-card"));
+  dealerIan.playerHand = []
+  dealerIan.dealerHand = []
+  $(".dealer-cards").empty()
+  $(".player-cards").empty()
+  $(".dealer-value").empty()
+  $(".dealer-cards").append($('<img src="cards/backcard.jpg">').addClass("back-card"))
   dealerIan.shuffleDeck();
   dealerIan.dealCards();
   dealerIan.evaluateHand();
   dealerIan.displayValues();
   dealerIan.bindCards();
 
-};
+}
 
-});
+})
