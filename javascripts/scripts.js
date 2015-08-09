@@ -242,31 +242,45 @@ $(document).ready(function(){
   Dealer.prototype.checkWin = function(){
     dealerIan.evaluateHand();
     if (dealerIan.dealerValue === dealerIan.playerValue){
-      alert("Tie");
+      $(".messages").text("PUSH").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
     }
     else if (dealerIan.dealerValue === 21){
-      alert("You lose, dealer 21");
+      //alert("You lose, dealer 21");
+      $(".messages").text("YOU LOSE").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
     }
     else if (dealerIan.playerValue === 21){
-      alert("You win, 21!");
+      //alert("You win, 21!");
+      $(".top-messages").text("PLAYER 21").show();
+      setTimeout(function() { $(".top-messages").hide(); }, 1500)
+      $(".messages").text("YOU WIN").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
     }
     else if (dealerIan.playerValue > 21){
-          // for (var i = 0; i < dealerIan.playerHand.length; i++){
-          //   if(dealerIan.playerHand[i].value === 11 ){
-          //     dealerIan.playerHand[i].value
-          //
-          //   }
-          // }
-      alert("Bust, you lose!");
+      // for (var i = 0; i < dealerIan.playerHand.length; i++){
+      //   if(dealerIan.playerHand[i].value === 11 ){
+      //     dealerIan.playerHand[i].value
+      //
+      //   }
+      // }
+      $(".messages").text("BUSTED").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
     }
     else if(dealerIan.dealerValue > 21){
-      alert("Dealer busts, you win!");
+      //alert("Dealer busts, you win!");
+      $(".top-messages").text("DEALER BUST").show();
+      setTimeout(function() { $(".top-messages").hide(); }, 1500)
+      $(".messages").text("YOU WIN").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
     }
     else if (dealerIan.playerValue > dealerIan.dealerValue){
-      alert("YOU WIN - higher than dealer");
+      $(".messages").text("YOU WIN").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
     }
     else if (dealerIan.dealerValue > dealerIan.playerValue){
-      alert("YOU LOSE - lower than dealer");
+      $(".messages").text("YOU LOSE").show();
+      setTimeout(function() { $(".messages").hide(); }, 1500);
       }
     };
 
@@ -294,11 +308,15 @@ $(document).ready(function(){
   Dealer.prototype.checkWinOnHit = function(){
     $(".hit").on("click", function(){
       if (dealerIan.playerValue === 21){
-        alert ("21, you win!!!");
+        $(".messages").text("YOU WIN").show();
+        setTimeout(function() { $(".messages").hide(); }, 1500);
+        $(".top-messages").text("Player 21").show();
+        setTimeout(function() { $(".top-messages").hide(); }, 1500)
       }
       else if (dealerIan.playerValue > 21){
-        alert ("Bust");
-            }
+        $(".messages").text("BUSTED").show();
+        setTimeout(function() { $(".messages").hide(); }, 1500);
+        }
       });
   };
   Dealer.prototype.checkWinOnStand = function(){

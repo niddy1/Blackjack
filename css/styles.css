@@ -73,9 +73,11 @@ body{
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .playing-cards{
-  height: 14em;
+  height: 30vh;
   margin-left: -100px;
-
+}
+img{
+  height: 30vh;
 }
 .value{
   margin-left: 43%;
@@ -101,6 +103,49 @@ body{
   margin-left: 60%;
   width: 50%;
 }
-img{
-  height: 14em;
+
+.messages {
+    font-size: 8em;
+    color: red;
+    position: absolute;
+    width: 100%;
+    top: 68%;
+    left: -23%;
+    text-align: center;
+    display: none;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.top-messages {
+  font-size: 8em;
+  color: red;
+  position: absolute;
+  width: 100%;
+  top: 38%;
+  left: 12%;
+  text-align: center;
+  display: none;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.koala{
+  background-image: url("koala.jpg");
+  border-radius: 50%;
+  background-position: center;
+  background-size: 135%;
+  height: 15em;
+  width: 15em;
+  position: absolute;
+  top: 50%;
+  display: none;
+}
+.margay{
+  display: none;
+  background-image: url("margay.jpg");
+  border-radius: 50%;
+  background-position: center;
+  background-size: 135%;
+  height: 15em;
+  width: 15em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
