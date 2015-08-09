@@ -253,7 +253,7 @@ $(document).ready(function(){
     else if (dealerIan.playerValue === 21){
       //alert("You win, 21!");
       $(".top-messages").text("PLAYER 21").show();
-      setTimeout(function() { $(".top-messages").hide(); }, 1500)
+      setTimeout(function() { $(".top-messages").hide(); }, 1500);
       $(".messages").text("YOU WIN").show();
       setTimeout(function() { $(".messages").hide(); }, 1500);
     }
@@ -270,7 +270,7 @@ $(document).ready(function(){
     else if(dealerIan.dealerValue > 21){
       //alert("Dealer busts, you win!");
       $(".top-messages").text("DEALER BUST").show();
-      setTimeout(function() { $(".top-messages").hide(); }, 1500)
+      setTimeout(function() { $(".top-messages").hide(); }, 1500);
       $(".messages").text("YOU WIN").show();
       setTimeout(function() { $(".messages").hide(); }, 1500);
     }
@@ -311,7 +311,7 @@ $(document).ready(function(){
         $(".messages").text("YOU WIN").show();
         setTimeout(function() { $(".messages").hide(); }, 1500);
         $(".top-messages").text("Player 21").show();
-        setTimeout(function() { $(".top-messages").hide(); }, 1500)
+        setTimeout(function() { $(".top-messages").hide(); }, 1500);
       }
       else if (dealerIan.playerValue > 21){
         $(".messages").text("BUSTED").show();
@@ -358,18 +358,32 @@ $(document).ready(function(){
     $(".player-value").html(dealerIan.playerValue);
     //$(".dealer-value").html(dealerIan.dealerValue)
   };
+  Dealer.prototype.icons = function(){
+    $(".dealer-name-plate").mouseenter(function(){
+      $(".koala").show();
+    });
+    $(".dealer-name-plate").mouseout(function(){
+      $(".koala").hide();
+    });
+    $(".player-name-plate").mouseenter(function(){
+      $(".margay").show();
+    });
+    $(".player-name-plate").mouseout(function(){
+      $(".margay").hide();
+    });
+  };
   //dealerIan.displayValues()
   //dealerIan.hitMe()
 
   dealerIan.hitMe();
   dealerIan.checkWinOnHit();
   dealerIan.checkWinOnStand();
-  $(".dealer-name-plate").hide()
-  $(".player-name-plate").hide()
+  $(".dealer-name-plate").hide();
+  $(".player-name-plate").hide();
   Dealer.prototype.newGame = function(){
     //debugger
-    $(".dealer-name-plate").show()
-    $(".player-name-plate").show()
+    $(".dealer-name-plate").show();
+    $(".player-name-plate").show();
     dealerIan.playerHand = [];
     dealerIan.dealerHand = [];
     $(".dealer-cards").empty();
@@ -381,5 +395,6 @@ $(document).ready(function(){
     dealerIan.evaluateHand();
     dealerIan.displayValues();
     dealerIan.bindCards();
+    dealerIan.icons();
     };
 });

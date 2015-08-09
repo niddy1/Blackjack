@@ -21,12 +21,12 @@ body{
 */
 .button{
   display: inline-block;
-  width: 4em;
-  height: 4em;
+  width: 12vh;
+  height: 12vh;
   background-color: #140EBF;
   color: black;
   border-radius: 50%;
-  font-size: 2em;
+  font-size: 3vh;
   font-family: monospace;
   border: .3em black dashed;
 }
@@ -36,12 +36,24 @@ body{
 .stand{
   margin-left: 2%;
 }
+.value{
+  margin-left: 38%;
+  height: 8vh;
+  width: 8vh;
+  background-color: gold;
+  color: black    ;
+  font-size: 2.5vh;
+  border-radius: 50%;
+  border: .25em dashed black;
+  text-align: center;
+  line-height: 2.5em;
+}
 .new-deal{
   border-radius: 50%;
-  height: 4em;
-  width: 4em;
+  height: 13vh;
+  width: 13vh;
   background-color: firebrick;
-  font-size: 2em;
+  font-size: 3vh;
   margin-left: 25%;
   font-family: monospace;
   border: 5px dashed black;
@@ -73,25 +85,11 @@ body{
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .playing-cards{
-  height: 30vh;
-  margin-left: -100px;
+  height: 27vh;
+  margin-left: -14.5vh;
 }
 img{
-  height: 30vh;
-}
-.value{
-  margin-left: 43%;
-  height: 2.5em;
-  width: 2.5em;
-  background-color: gold;
-  color: black    ;
-  font-size: 1.6em;
-  border-radius: 50%;
-  border: .25em dashed black;
-  text-align: center;
-  line-height: 2.5em;
-
-
+  height: 27vh;
 }
 .dealer-cards{
   height: 35%;
@@ -134,11 +132,13 @@ img{
   height: 15em;
   width: 15em;
   position: absolute;
-  top: 50%;
+  top: 25%;
+  margin-left: 1%;
   display: none;
+
 }
 .margay{
-  display: none;
+
   background-image: url("margay.jpg");
   border-radius: 50%;
   background-position: center;
@@ -146,6 +146,13 @@ img{
   height: 15em;
   width: 15em;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
+  margin-left: 17%;
+  display: none;
+}
+@media (max-width: 700px) {
+  .button {
+    
+  }
 }
