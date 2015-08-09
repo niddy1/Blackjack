@@ -1,10 +1,11 @@
 body{
-  background-color: lightgrey;
+  background-image: url("Table.png");
+  font-family: monospace;
 }
 .entire-board{
   width: 100%;
-  height: 500px;
-  background-color: green;
+  height: 100%;
+  background-image: url("Table.png");
   padding-top: 100px;
 }
 /*
@@ -19,66 +20,87 @@ body{
 }
 */
 .button{
-  margin-left: 200px;
   display: inline-block;
-  width: 100px;
-  height: 50px;
-  background-color: black;
-  color: white;
-  border-radius: 15px;
-  font-size: 24px;
+  width: 4em;
+  height: 4em;
+  background-color: #140EBF;
+  color: black;
+  border-radius: 50%;
+  font-size: 2em;
+  font-family: monospace;
+  border: .3em black dashed;
+}
+.hit{
+  margin-left: 15%;
+}
+.stand{
+  margin-left: 2%;
 }
 .new-deal{
   border-radius: 50%;
-  height: 80px;
-  width: 80px;
+  height: 4em;
+  width: 4em;
   background-color: firebrick;
-  font-size: 25px;
-  margin-left: 40px;
+  font-size: 2em;
+  margin-left: 25%;
+  font-family: monospace;
+  border: 5px dashed black;
+}
+.new-deal:hover{
+  background-color: white;
 }
 .button:hover{
-  background-color: red;
+  background-color: white;
 }
 .player-name-plate{
-  width: 100px;
-  height: 40px;
-  border: black;
-  background-color: lightblue;
-  float: right;
-  margin-top: 300px;
+  width: 10%;
+  border: 1px;
+  margin-left: 33%;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 2.5em;
+  color: firebrick;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .dealer-name-plate{
-  width: 100px;
-  height: 40px;
-  border: black;
-  background-color: lightblue;
-  float: right;
+  width: 10%;
+  border: 1px;
+  margin-left: 15%;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 2.5em;
+  color: firebrick;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .playing-cards{
-  height: 150px;
-  margin-right: 10px;
-  margin-left: -90px;
+  height: 14em;
+  margin-left: -100px;
 
 }
 .value{
-  margin-left: auto;
-  margin-right: auto;
-  height: 50px;
-  width: 50px;
-  background-color: black;
-  color: gold;
-  font-size: 20px;
+  margin-left: 43%;
+  height: 2.5em;
+  width: 2.5em;
+  background-color: gold;
+  color: black    ;
+  font-size: 1.6em;
   border-radius: 50%;
-  border: 1px solid grey;
+  border: .25em dashed black;
   text-align: center;
+  line-height: 2.5em;
+
 
 }
 .dealer-cards{
-  margin-left: 120px;
+  height: 35%;
+  margin-left: 20%;
+  width: 50%;
 }
 .player-cards{
-  margin-left: 500px;
+  height: 35%;
+  margin-left: 60%;
+  width: 50%;
 }
 img{
-  height: 150px;
+  height: 14em;
 }
