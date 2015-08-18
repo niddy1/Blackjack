@@ -132,8 +132,8 @@ img{
   height: 15em;
   width: 15em;
   position: absolute;
-  top: 25%;
-  margin-left: 1%;
+  top: 10%;
+  margin-left: 2%;
   display: none;
 
 }
@@ -146,7 +146,7 @@ img{
   height: 15em;
   width: 15em;
   position: absolute;
-  top: 60%;
+  top: 47%;
   left: 50%;
   margin-left: 17%;
   display: none;

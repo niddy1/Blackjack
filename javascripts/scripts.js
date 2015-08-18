@@ -76,6 +76,12 @@ $(document).ready(function(){
     }
     this.dealerValue = tempSumDealer;
     this.playerValue = tempSumPlayer;
+    if (dealerIan.checkAcePlayer() && (dealerIan.playerValue > 21) ){
+      dealerIan.playerValue = dealerIan.playerValue - 10
+    }
+    else if (dealerIan.checkAceDealer() && dealerIan.dealerValue > 21){
+      dealerIan.dealerValue = dealerIan.dealerValue - 10
+    }
     // console.log("dealers value: " + this.dealerValue);
     // console.log("players value: " + this.playerValue);
   };
@@ -127,6 +133,23 @@ $(document).ready(function(){
       setTimeout(function() { $(".messages").hide(); }, 1500);
       }
     };
+
+  Dealer.prototype.checkAcePlayer= function(){
+    for (var i = 0; i < dealerIan.playerHand.length; i++){
+      if(dealerIan.playerHand[i].value === 11 ){
+        return true
+      }
+    }
+      return false
+  }
+  Dealer.prototype.checkAceDealer= function(){
+    for (var i = 0; i < dealerIan.dealerHand.length; i++){
+      if(dealerIan.dealerHand[i].value === 11 ){
+        return true
+      }
+    }
+      return false
+  }
 
   Dealer.prototype.checkWinOnHit = function(){
     $(".hit").on("click", function(){
