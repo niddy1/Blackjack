@@ -10,7 +10,7 @@ A wonderful game for young and old. Now featuring koalas and margays.
 - As a user I want to be able to doubledown and split so that the game is more realistic to casino conditions.
 
 ## Gameplay
-![](http://g.recordit.co/XnAEMBMt9j.gif)
+![](http://postimg.org/image/q4fd57n4t/)
 
 ## Technologies
 - HTML
