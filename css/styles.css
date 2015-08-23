@@ -1,11 +1,11 @@
 body{
-  background-image: url("Table.png");
+  background-image: url("../images/Table.png");
   font-family: monospace;
 }
 .entire-board{
   width: 100%;
   height: 100%;
-  background-image: url("Table.png");
+  background-image: url("../images/Table.png");
   padding-top: 2vh;
 }
 /*
@@ -125,7 +125,7 @@ img{
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .koala{
-  background-image: url("koala.jpg");
+  background-image: url("../images/koala.jpg");
   border-radius: 50%;
   background-position: center;
   background-size: 135%;
@@ -139,7 +139,7 @@ img{
 }
 .margay{
 
-  background-image: url("margay.jpg");
+  background-image: url("../images/margay.jpg");
   border-radius: 50%;
   background-position: center;
   background-size: 135%;

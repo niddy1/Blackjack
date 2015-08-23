@@ -29,16 +29,16 @@ function Card(symbol, suit, value, image){
 
 function MakeDeck() {
       for (var i = 2; i < 11; i++) {
-        deck.push( new Card( i.toString(), suits[0], i, "cards/" + i+ "_of_" + suits[0] + ".png"   ) );
-        deck.push( new Card( i.toString(), suits[1], i, "cards/" + i+ "_of_" + suits[1] + ".png"   ) );
-        deck.push( new Card( i.toString(), suits[2], i, "cards/" + i+ "_of_" + suits[2] + ".png"   ) );
-        deck.push( new Card( i.toString(), suits[3], i, "cards/" + i+ "_of_" + suits[3] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[0], i, "images/" + i+ "_of_" + suits[0] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[1], i, "images/" + i+ "_of_" + suits[1] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[2], i, "images/" + i+ "_of_" + suits[2] + ".png"   ) );
+        deck.push( new Card( i.toString(), suits[3], i, "images/" + i+ "_of_" + suits[3] + ".png"   ) );
       }
       for (var j = 0; j < 4; j++) {
-          deck.push( new Card( faceCards[j], suits[0], (faceCards[j] == 'ace' ? 11 : 10),"cards/" + faceCards[j] + "_of_" + suits[0] + ".png"       ) );
-          deck.push( new Card( faceCards[j], suits[1], (faceCards[j] == 'ace' ? 11 : 10),"cards/" + faceCards[j] + "_of_" + suits[1] + ".png"       ) );
-          deck.push( new Card( faceCards[j], suits[2], (faceCards[j] == 'ace' ? 11 : 10),"cards/" + faceCards[j] + "_of_" + suits[2] + ".png"       ) );
-          deck.push( new Card( faceCards[j], suits[3], (faceCards[j] == 'ace' ? 11 : 10),"cards/" + faceCards[j] + "_of_" + suits[3] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[0], (faceCards[j] == 'ace' ? 11 : 10),"images/" + faceCards[j] + "_of_" + suits[0] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[1], (faceCards[j] == 'ace' ? 11 : 10),"images/" + faceCards[j] + "_of_" + suits[1] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[2], (faceCards[j] == 'ace' ? 11 : 10),"images/" + faceCards[j] + "_of_" + suits[2] + ".png"       ) );
+          deck.push( new Card( faceCards[j], suits[3], (faceCards[j] == 'ace' ? 11 : 10),"images/" + faceCards[j] + "_of_" + suits[3] + ".png"       ) );
       }
 
 
