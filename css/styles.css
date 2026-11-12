@@ -155,3 +155,77 @@ img{
   font-size: 14vw;
   margin-left: 5%;
 }
+
+/* one extra, very fancy chip: the way out to the real version */
+.real-chip{
+  position: fixed;
+  top: 2vh;
+  right: 3vw;
+  z-index: 50;
+  width: 14vh;
+  height: 14vh;
+  min-width: 78px;
+  min-height: 78px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #fff3c4;
+  font-family: Georgia, serif;
+  background:
+    radial-gradient(circle, #3b0d6b 0 56%, transparent 57%),
+    repeating-conic-gradient(#f5d36b 0 15deg, #6a2fb5 15deg 30deg);
+  box-shadow: 0 0 0 3px #b98f2a, 0 6px 0 rgba(0,0,0,.5), 0 12px 24px rgba(0,0,0,.55), 0 0 22px rgba(245,211,107,.55);
+  animation: real-chip-float 3.2s ease-in-out infinite;
+  transition: transform .2s;
+}
+.real-chip::before{
+  content: '';
+  position: absolute;
+  top: 13%; right: 13%; bottom: 13%; left: 13%;
+  border-radius: 50%;
+  border: 2px dashed #f5d36b;
+}
+.real-chip::after{
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  border-radius: 50%;
+  background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,.55) 50%, transparent 62%);
+  background-size: 250% 100%;
+  animation: real-chip-shine 2.8s linear infinite;
+  pointer-events: none;
+}
+.real-chip span{
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-size: 1.5vh;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-shadow: 0 1px 2px #000;
+}
+.real-chip b{
+  display: block;
+  font-size: 2.9vh;
+  letter-spacing: .06em;
+  color: #fff;
+}
+.real-chip:hover{
+  transform: scale(1.12) rotate(12deg);
+}
+@keyframes real-chip-float{
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: 8px; }
+}
+@keyframes real-chip-shine{
+  from { background-position: 150% 0; }
+  to { background-position: -150% 0; }
+}
+@media (max-width: 700px){
+  .real-chip span{ font-size: 10px; }
+  .real-chip b{ font-size: 19px; }
+}
